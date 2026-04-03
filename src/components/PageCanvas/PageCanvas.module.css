@@ -1,0 +1,100 @@
+.pageWrapper {
+  margin-bottom: 32px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+
+.pageLabel {
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.pageActions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.actionBtn:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.actionBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.dangerBtn:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.canvas {
+  position: relative;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Print layer is hidden on screen, visible in print */
+.printLayer {
+  display: none;
+}
+
+/* Interactive layer visible on screen, hidden in print */
+.interactiveLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.printImage {
+  position: absolute;
+  display: block;
+}
+
+@media print {
+  .pageWrapper {
+    margin: 0;
+    padding: 0;
+    page-break-after: always;
+  }
+
+  .pageHeader {
+    display: none !important;
+  }
+
+  .canvas {
+    width: 210mm !important;
+    height: 297mm !important;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .printLayer {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  .interactiveLayer {
+    display: none !important;
+  }
+}

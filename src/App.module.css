@@ -1,0 +1,16 @@
+.app {
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+@media print {
+  .main {
+    padding: 0;
+  }
+}
