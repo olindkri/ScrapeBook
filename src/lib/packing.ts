@@ -29,13 +29,13 @@ export function autoPackImages(images: ScrapeBookImage[]): PackResult {
     }
   );
 
-  const rects = images.map((img) => ({
-    width: Math.round(img.width * PRECISION_SCALE),
-    height: Math.round(img.height * PRECISION_SCALE),
-    data: img,
-  }));
-
-  packer.addArray(rects);
+  for (const img of images) {
+    packer.add(
+      Math.round(img.width * PRECISION_SCALE),
+      Math.round(img.height * PRECISION_SCALE),
+      img
+    );
+  }
 
   const packed: ScrapeBookImage[] = [];
   const overflow: ScrapeBookImage[] = [];

@@ -1,5 +1,6 @@
 import { useStore } from '../../store/useStore';
 import { A4_WIDTH_MM, A4_HEIGHT_MM } from '../../lib/constants';
+import { useResponsiveScale } from '../../hooks/useResponsiveScale';
 import { ImageItem } from '../ImageItem/ImageItem';
 import type { Page } from '../../lib/types';
 import styles from './PageCanvas.module.css';
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export function PageCanvas({ page, pageIndex }: Props) {
-  const scale = useStore((s) => s.scaleFactor);
+  const scale = useResponsiveScale();
   const removePage = useStore((s) => s.removePage);
   const autoPackPage = useStore((s) => s.autoPackPage);
   const addImages = useStore((s) => s.addImages);
@@ -73,6 +74,7 @@ export function PageCanvas({ page, pageIndex }: Props) {
               key={img.id}
               src={img.src}
               alt=""
+              loading="eager"
               className={styles.printImage}
               style={{
                 left: `${img.x}mm`,

@@ -14,6 +14,7 @@
   height: 100%;
   position: relative;
   user-select: none;
+  touch-action: none;
 }
 
 .image {
@@ -45,6 +46,16 @@
 
 .deleteBtn:hover {
   background: #dc2626;
+}
+
+@media (max-width: 480px) {
+  .deleteBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    top: -12px;
+    right: -12px;
+  }
 }
 
 @media print {

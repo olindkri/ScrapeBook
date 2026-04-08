@@ -11,10 +11,17 @@ body {
   background: #f3f4f6;
   color: #111827;
   min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  -webkit-text-size-adjust: 100%;
 }
 
 @media print {
   body {
     background: white;
+    padding: 0;
   }
 }

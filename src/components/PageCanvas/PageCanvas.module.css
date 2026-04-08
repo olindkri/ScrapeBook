@@ -1,5 +1,6 @@
 .pageWrapper {
   margin-bottom: 32px;
+  max-width: 100%;
 }
 
 .pageHeader {
@@ -56,7 +57,10 @@
 
 /* Print layer is hidden on screen, visible in print */
 .printLayer {
-  display: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Interactive layer visible on screen, hidden in print */
@@ -68,6 +72,27 @@
 .printImage {
   position: absolute;
   display: block;
+}
+
+@media (max-width: 480px) {
+  .pageWrapper {
+    margin-bottom: 16px;
+  }
+
+  .pageHeader {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 2px;
+  }
+
+  .pageActions {
+    gap: 4px;
+  }
+
+  .actionBtn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
 }
 
 @media print {
@@ -89,9 +114,7 @@
   }
 
   .printLayer {
-    display: block;
-    position: absolute;
-    inset: 0;
+    opacity: 1;
   }
 
   .interactiveLayer {
